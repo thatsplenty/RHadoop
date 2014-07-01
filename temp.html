@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SAS Campaign Management</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8"></meta>
+    <link href="/sasma/favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" href="/sasma/css/bootstrap.css" media="screen"></link>
+    <link rel="stylesheet" href="/sasma/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="/sasma/css/bootswatch.min.css"></link>
+    <link rel="stylesheet" href="/sasma/css/infragistics.theme.css"></link>
+    <link rel="stylesheet" href="/sasma/css/infragistics.css"></link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/sasma/js/html5shiv.js"></script>
+      <script src="/sasma/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+/*
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+*/
+    </script>
+
+    <style type="text/css">
+    <!--
+    .style2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .style3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .style4 {font-size: 24px}
+    .style5 {font-size: 18px}
+    -->
+    html {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    </style>
+    <script src="/sasma/js/bootstrap.min.js"></script>
+    <script src="/sasma/js/bootswatch.js"></script>
+    <script src="/sasma/js/modernizr-latest.js"></script>
+    <script src="/sasma/js/jquery-1.9.1.min.js"></script>
+    <script src="/sasma/js/jquery-ui.min.js"></script>
+    <script src="/sasma/js/infragistics.core.js"></script>
+    <script src="/sasma/js/infragistics.lob.js"></script>
+</head>
+<body>
+<div class="container">
+  <script type="text/javascript">
+    function showHide(idValue,btnId) {
+        if( document.getElementById(idValue).style.display=='none' ){
+            document.getElementById(idValue).style.display = 'table-row';
+            document.getElementById(btnId).html = "숨기기";
+        } else {
+            document.getElementById(idValue).style.display = 'none';
+            document.getElementById(btnId).html = "내용보기";
+        }
+    }
+    </script>
+  <table border="1" cellspacing="0" cellpadding="0" class="table table-striped table-bordered table-hover" style="width: 1030px">
+    <thead>
+      <tr>
+        <th width="110" style="text-align: center; vertical-align: middle">일련번호</th>
+        <th width="110" style="text-align: center; vertical-align: middle">정책명</th>
+        <th width="110" style="text-align: center; vertical-align: middle">적용내용</th>
+        <th width="110" style="text-align: center; vertical-align: middle">상태</th>
+        <th width="110" style="text-align: center; vertical-align: middle">등록자</th>
+        <th width="110" style="text-align: center; vertical-align: middle">등록일</th>
+        <th width="40" style="text-align: center; vertical-align: middle">&nbsp;</th>
+      </tr>
+    </thead>
+    <tr>
+      <td align="center">1</td>
+      <td align="center">Test</td>
+      <td align="center">Test contents</td>
+      <td align="center">Status</td>
+      <td align="center">User</td>
+      <td align="center">Time</td>
+      <td align="center">
+        <button id="rowIdBtn1" class="btn btn-primary" onclick="return showHide('rowId1','rowIdBtn1');">내용보기</button>
+      </td>
+    </tr>
+    <tr id="rowId1" style="display:none;">
+      <td align="center" colspan="7">
+<script>
+function addRow(no) {
+    var buttonText = $('#rowId'+no+'ButtonAddRow').html();
+    if(buttonText == '삭제') {
+        $('#rowId'+no+'ButtonAddRow').parent().parent().remove();
+    } else {
+        var text = '<tr>'
+            + '    <td>정책 : </td>'
+            + '<td>'
+            + '  <select name="columnName" style="width:120px">'
+            + '      <option value="1">Column 1</option>'
+            + '      <option value="2">Column 2</option>'
+            + '      <option value="3">Column 3</option>'
+            + '      <option value="4">Column 4</option>'
+            + '      <option value="5">Column 5</option>'
+            + '  </select>'
+            + '</td>'
+            + '<td>'
+            + '  <select name="innerPolicy1rowId'+ (no+1) +'Operator" style="width:50px">'
+            + '      <option value="1">=</option>'
+            + '      <option value="2">></option>'
+            + '      <option value="3"><</option>'
+            + '      <option value="4">IN</option>'
+            + '      <option value="5">NOT IN</option>'
+            + '  </select>'
+            + '</td>'
+            + '<td>'
+            + '  <input type="text" id="innerPolicy1rowId'+ (no+1) +'Input" class="form-control col-lg-8" style="width: 120px">'
+            + '</td>'
+            + '<td>'
+            + '  <button class="btn btn-primary">값 찾기</button>'
+            + '</td>'
+            + '<td>'
+            + '  <button id="rowId'+(no+1)+'ButtonAddRow" class="btn btn-primary" onclick="return addRow('+ (no+1) +');">추가</button>'
+            + '</td>';
+        $('#innerPolicy1 tr:last').after(text);
+        $('#rowId'+no+'ButtonAddRow').html('삭제');
+    }
+}
+function saveRow(no) {
+
+// 요기가 가져오고 싶은 정보...;;;
+ $('#innerPolicy1 tr').each(function() {
+     var cname = $(this).find("td").eq(1).html(); 
+        alert("c===>" + cname);
+        var sname = $(cname).find('#columnName').value();
+        alert("s===>" + sname);
+ });
+}
+</script>
+        <table id="innerPolicy1" style="width: 900px">
+            <tr>
+                <td>정책 : </td>
+                <td>
+                  <select id="columnName" name="columnName" style="width:120px">
+                      <option value="1">Column 1</option>
+                      <option value="2">Column 2</option>
+                      <option value="3">Column 3</option>
+                      <option value="4">Column 4</option>
+                      <option value="5">Column 5</option>
+                  </select>
+                </td>
+                <td>
+                  <select id="innerPolicy1rowId1Operator" name="rowId1Operator" style="width:50px">
+                      <option value="1">=</option>
+                      <option value="2">></option>
+                      <option value="3"><</option>
+                      <option value="4">IN</option>
+                      <option value="5">NOT IN</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" id="innerPolicy1rowId1Input" class="form-control col-lg-8" style="width: 120px">
+                </td>
+                <td>
+                  <button class="btn btn-primary">값 찾기</button>
+                </td>
+                <td>
+                  <button id="rowId1ButtonAddRow" class="btn btn-primary" onclick="return addRow(1);">추가</button>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 900px">
+            <tr>
+                <td colspan="5" align="center">
+                  <button class="btn btn-primary" onclick="return saveRow(1);">저장</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-primary">삭제</button>
+                </td>
+            </tr>
+            <input type="hidden" id="innerPolicy1count" name="innerPolicy1count" value="1"/>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript">
+    function openPopupForAppendPopup() {
+        window.open('/sasma/policy/insert.sas',
+                        "_blank",
+                        "width=600,height=500,location=no,directories=no,resizable=no,status=no,toolbar=no,menubar=no");
+    }
+</script>
+<table width="1000" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="right">
+        <button class="btn btn-primary" onclick="return openPopupForAppendPopup();">정책 추가</button>
+      </div></td>
+    <td width="20" height="60"><div align="right"></div></td>
+  </tr>
+</table>
+</body>
+</html>
+
